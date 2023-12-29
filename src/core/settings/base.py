@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # My Apps
     "src.apps.accounts",
+    "src.apps.boards",
 ]
 
 MIDDLEWARE = [
@@ -123,5 +124,7 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+APPEND_SLASH = True # default: True
 
 AUTH_USER_MODEL = "accounts.User"
