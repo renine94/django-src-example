@@ -1,3 +1,42 @@
 [tool.pytest.ini_options]
 DJANGO_SETTINGS_MODULE = "test.settings"
 python_files = ["test_*.py", "*_test.py", "tests/*.py"]
+
+[tool.black]
+exclude = '''
+(
+  /(
+    | \.git
+    | \.hg
+    | \.mypy_cache
+    | \.nox
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+    | venv
+    | submodules
+    | migrations
+  )/
+)
+'''
+line-length = 120
+
+[tool.flake8]
+ignore = ["E203", "E266", "E501", "W503", "F403", "F401", "C901"]
+max-line-length = 120
+max-complexity = 12
+per-file-ignores = [
+  "__init__.py:F401",
+  "tests/*:F401,F841",
+]
+exclude = [
+  ".venv",
+]
+
+[tool.isort]
+profile = "black"
+force_single_line = true
+line_length = 120
