@@ -6,3 +6,16 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'unique-snowflake',
+        'TIMEOUT': 300,  # 기본값 300초 = 5분
+        'OPTIONS': {'MAX_ENTRIES': 300},  # 기본값 = 300
+    }
+}
+
+INSTALLED_APPS += [
+    "django_extensions",
+]

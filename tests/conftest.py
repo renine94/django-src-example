@@ -1,5 +1,5 @@
-from django.test import Client
 import pytest
+from django.test import Client
 
 
 @pytest.fixture(autouse=True)

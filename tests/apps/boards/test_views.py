@@ -3,8 +3,7 @@ def test_index(client):
     ...
 
     # When
-    response = client.get('/boards/')
+    response = client.get("/boards/")
 
     # Then
     assert response.json() == "hello world"
-
