@@ -26,6 +26,8 @@ INSTALLED_APPS += [
     "django_extensions",
 ]
 
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
 
 STORAGES = {
     "default": {
