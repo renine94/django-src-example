@@ -11,7 +11,8 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-# gunicorn src.wsgi:application -b 0.0.0.0:8000 -w 4 -e DJANGO_SETTINGS_MODULE=src.core.settings.{env}
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "src.settings")
+# Mac
+# gunicorn src.wsgi:application -b 0.0.0.0:8000 -w $(sysctl -n hw.ncpu) -e DJANGO_SETTINGS_MODULE=src.core.settings.${env}
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "src.core.settings.prod")
 
 application = get_wsgi_application()
