@@ -1,6 +1,7 @@
+from datetime import timedelta
+
 from django.utils import timezone
 from rest_framework.throttling import BaseThrottle
-from datetime import timedelta
 
 
 class DailyThrottle(BaseThrottle):
@@ -28,9 +29,7 @@ class DailyThrottle(BaseThrottle):
     def wait(self) -> int | None:
         timezone.get_current_timezone()
         timezone.now().astimezone(timezone.get_current_timezone()).replace(hour=0, minute=0, second=0, microsecond=0)
-        
+
         current_time = timezone.now()
         next_midnight = current_time.replace(hour=0, minute=0, second=0, microsecond=0) + timedelta(days=1)
         return (next_midnight - current_time).seconds
-
-
